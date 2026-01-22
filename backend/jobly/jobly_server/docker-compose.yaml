@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: jobly
+      POSTGRES_PASSWORD: "JiPu4hZ9k8zNnCyRh9k-HiJY-AjDIQjU"
+    volumes:
+      - jobly_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "2O0jSCoJg8iIcngrpe__Q9JDdyoakVU4"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: jobly_test
+      POSTGRES_PASSWORD: "EjhppYa7RFQqx1-ejSE4_HzeS1Ra5YtB"
+    volumes:
+      - jobly_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "kj3VwfouvYaorftiLMqjEZ6_Hmt6wQEn"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  jobly_data:
+  jobly_test_data:

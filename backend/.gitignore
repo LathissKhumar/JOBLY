@@ -1,0 +1,40 @@
+# Miscellaneous
+.DS_Store
+.thumb
+.history
+*.swp
+*~
+.env
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Visual Studio Code
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# Dart and Flutter
+.dart_tool/
+.packages
+build/
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android Studio
+android/local.properties
+ios/.generated/
+
+# Serverpod & Secrets
+**/config/passwords.yaml
+**/config/firebase_service_account_key.json
+**/config/google_service_account_key.json
+**/serverpod_cloud_service_account_key.json
